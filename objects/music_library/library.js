@@ -23,10 +23,6 @@ const library = {
   }
 };
 
-/////////////////////////////
-// FUNCTIONS TO IMPLEMENT:
-/////////////////////////////
-
 // prints a list of all playlists, in the form:
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
@@ -34,16 +30,19 @@ const printPlaylists = function() {
   // Access the Playlist Key:
   const playlists = library.playlists;
   // Iterate Through Playlists:
-  for (let playlist in playlists) {
-    return `Object.id`;
+  for (let playlistId in playlists) {
+    // Access Playlist Properties
+    const playlist = playlists[playlistId];
+    const name = playlist.name;
+    const tracksCount = playlist.tracks.length;
+    // Construct Output String:
+    const output = `${playlistId}: ${name} - ${tracksCount} tracks`;
+    // Print string:
+    console.log(output);
   }
-  // Access Playlist Properties
-
-  // Construct Output String:
-
-  // Print string:
-       
 };
+     
+printPlaylists();
 
 
 // prints a list of all tracks, using the following format:
@@ -51,8 +50,23 @@ const printPlaylists = function() {
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 const printTracks = function() {
-
+  // Access the Playlist Key:
+  const tracks = library.tracks;
+  // Iterate Through Playlists:
+  for (let trackId in tracks) {
+    // Access Playlist Properties
+    const track = tracks[trackId];
+    const name = track.name;
+    const artist = track.artist;
+    const album = track.album;
+    // Construct Output String:
+    const output = `${trackId}: ${name} by ${track.artist} (${track.album})`;
+    // Print string:
+    console.log(output);
+  }
 };
+     
+printTracks();
 
 
 // prints a list of tracks for a given playlist, using the following format:
